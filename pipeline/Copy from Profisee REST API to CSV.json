@@ -149,12 +149,10 @@
 		],
 		"variables": {
 			"OutputContainer": {
-				"type": "String",
-				"defaultValue": "profisee-output"
+				"type": "String"
 			},
 			"EntityId": {
-				"type": "String",
-				"defaultValue": "CustomerAccount"
+				"type": "String"
 			}
 		},
 		"folder": {
