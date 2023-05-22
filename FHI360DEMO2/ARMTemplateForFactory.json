@@ -22,6 +22,10 @@
 		"ls_ProfiseeRESTAPI_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://sbprofisee.onebridge.xyz/profisee/rest/v1"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/6eeab5e8-d068-4132-9d68-67a504a3069c/resourceGroups/FHI360-Demo/providers/Microsoft.Storage/storageAccounts/fhi360storage"
 		}
 	},
 	"variables": {
@@ -289,12 +293,10 @@
 				},
 				"variables": {
 					"OutputContainer": {
-						"type": "String",
-						"defaultValue": "profisee-output"
+						"type": "String"
 					},
 					"EntityId": {
-						"type": "String",
-						"defaultValue": "CustomerAccount"
+						"type": "String"
 					}
 				},
 				"folder": {
@@ -544,6 +546,37 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ls_AzureKVDemo')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "Copy from Profisee REST API to CSV",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/profisee-input/blobs/",
+					"blobPathEndsWith": ".csv",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('trigger1_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/Copy from Profisee REST API to CSV')]"
 			]
 		}
 	]

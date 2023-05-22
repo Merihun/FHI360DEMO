@@ -16,6 +16,9 @@
 		},
 		"ls_ProfiseeRESTAPI_properties_typeProperties_url": {
 			"value": "https://sbprofisee.onebridge.xyz/profisee/rest/v1"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/6eeab5e8-d068-4132-9d68-67a504a3069c/resourceGroups/FHI360-Demo/providers/Microsoft.Storage/storageAccounts/fhi360storage"
 		}
 	}
 }
