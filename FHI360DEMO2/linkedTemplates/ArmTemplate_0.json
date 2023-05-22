@@ -418,7 +418,79 @@
 								"mappings": [
 									{
 										"source": {
-											"path": "[['code']"
+											"path": "$['pageNumber']"
+										},
+										"sink": {
+											"name": "pageNumber"
+										}
+									},
+									{
+										"source": {
+											"path": "$['pageSize']"
+										},
+										"sink": {
+											"name": "pageSize"
+										}
+									},
+									{
+										"source": {
+											"path": "$['resultCount']"
+										},
+										"sink": {
+											"name": "resultCount"
+										}
+									},
+									{
+										"source": {
+											"path": "$['totalPages']"
+										},
+										"sink": {
+											"name": "totalPages"
+										}
+									},
+									{
+										"source": {
+											"path": "$['previousPage']"
+										},
+										"sink": {
+											"name": "previousPage"
+										}
+									},
+									{
+										"source": {
+											"path": "$['nextPage']"
+										},
+										"sink": {
+											"name": "nextPage"
+										}
+									},
+									{
+										"source": {
+											"path": "$['totalRecords']"
+										},
+										"sink": {
+											"name": "totalRecords"
+										}
+									},
+									{
+										"source": {
+											"path": "$['data'][0]['internalId']"
+										},
+										"sink": {
+											"name": "internalId"
+										}
+									},
+									{
+										"source": {
+											"path": "$['data'][0]['id']"
+										},
+										"sink": {
+											"name": "id"
+										}
+									},
+									{
+										"source": {
+											"path": "$['data'][0]['code']"
 										},
 										"sink": {
 											"name": "code"
@@ -426,7 +498,7 @@
 									},
 									{
 										"source": {
-											"path": "[['name']"
+											"path": "$['data'][0]['name']"
 										},
 										"sink": {
 											"name": "name"
@@ -434,7 +506,7 @@
 									},
 									{
 										"source": {
-											"path": "[['addressLine1']"
+											"path": "$['data'][0]['addressLine1']"
 										},
 										"sink": {
 											"name": "addressLine1"
@@ -442,7 +514,7 @@
 									},
 									{
 										"source": {
-											"path": "[['addressLine2']"
+											"path": "$['data'][0]['addressLine2']"
 										},
 										"sink": {
 											"name": "addressLine2"
@@ -450,7 +522,7 @@
 									},
 									{
 										"source": {
-											"path": "[['addressLine3']"
+											"path": "$['data'][0]['addressLine3']"
 										},
 										"sink": {
 											"name": "addressLine3"
@@ -458,7 +530,7 @@
 									},
 									{
 										"source": {
-											"path": "[['city']"
+											"path": "$['data'][0]['city']"
 										},
 										"sink": {
 											"name": "city"
@@ -466,7 +538,7 @@
 									},
 									{
 										"source": {
-											"path": "[['stateProvince']"
+											"path": "$['data'][0]['stateProvince']"
 										},
 										"sink": {
 											"name": "stateProvince"
@@ -474,14 +546,78 @@
 									},
 									{
 										"source": {
-											"path": "[['postalCode']"
+											"path": "$['data'][0]['postalCode']"
 										},
 										"sink": {
 											"name": "postalCode"
 										}
+									},
+									{
+										"source": {
+											"path": "$['data'][0]['enterDTM']"
+										},
+										"sink": {
+											"name": "enterDTM"
+										}
+									},
+									{
+										"source": {
+											"path": "$['data'][0]['enterUserName']"
+										},
+										"sink": {
+											"name": "enterUserName"
+										}
+									},
+									{
+										"source": {
+											"path": "$['data'][0]['lastChgDTM']"
+										},
+										"sink": {
+											"name": "lastChgDTM"
+										}
+									},
+									{
+										"source": {
+											"path": "$['data'][0]['lastChgUserName']"
+										},
+										"sink": {
+											"name": "lastChgUserName"
+										}
+									},
+									{
+										"source": {
+											"path": "$['data'][0]['validationStatusID']"
+										},
+										"sink": {
+											"name": "validationStatusID"
+										}
+									},
+									{
+										"source": {
+											"path": "$['data'][0]['canUpdate']"
+										},
+										"sink": {
+											"name": "canUpdate"
+										}
+									},
+									{
+										"source": {
+											"path": "$['data'][0]['canDelete']"
+										},
+										"sink": {
+											"name": "canDelete"
+										}
+									},
+									{
+										"source": {
+											"path": "$['errors']"
+										},
+										"sink": {
+											"name": "errors"
+										}
 									}
 								],
-								"collectionReference": "$['data']",
+								"collectionReference": "",
 								"mapComplexValuesToString": false
 							}
 						},
