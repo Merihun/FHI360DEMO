@@ -47,7 +47,8 @@
 									"path": "$['data'][0]['code']"
 								},
 								"sink": {
-									"name": "code"
+									"name": "code",
+									"type": "String"
 								}
 							},
 							{
@@ -55,7 +56,8 @@
 									"path": "$['data'][0]['name']"
 								},
 								"sink": {
-									"name": "name"
+									"name": "name",
+									"type": "String"
 								}
 							},
 							{
@@ -63,7 +65,8 @@
 									"path": "$['data'][0]['addressLine1']"
 								},
 								"sink": {
-									"name": "addressLine1"
+									"name": "addressLine1",
+									"type": "String"
 								}
 							},
 							{
@@ -71,7 +74,8 @@
 									"path": "$['data'][0]['addressLine2']"
 								},
 								"sink": {
-									"name": "addressLine2"
+									"name": "addressLine2",
+									"type": "String"
 								}
 							},
 							{
@@ -79,7 +83,8 @@
 									"path": "$['data'][0]['addressLine3']"
 								},
 								"sink": {
-									"name": "addressLine3"
+									"name": "addressLine3",
+									"type": "String"
 								}
 							},
 							{
@@ -87,7 +92,8 @@
 									"path": "$['data'][0]['city']"
 								},
 								"sink": {
-									"name": "city"
+									"name": "city",
+									"type": "String"
 								}
 							},
 							{
@@ -95,7 +101,8 @@
 									"path": "$['data'][0]['stateProvince']"
 								},
 								"sink": {
-									"name": "stateProvince"
+									"name": "stateProvince",
+									"type": "String"
 								}
 							},
 							{
@@ -103,7 +110,8 @@
 									"path": "$['data'][0]['postalCode']"
 								},
 								"sink": {
-									"name": "postalCode"
+									"name": "postalCode",
+									"type": "String"
 								}
 							},
 							{
@@ -111,7 +119,8 @@
 									"path": "$['data'][0]['country']"
 								},
 								"sink": {
-									"name": "country"
+									"name": "country",
+									"type": "String"
 								}
 							},
 							{
@@ -119,7 +128,8 @@
 									"path": "$['data'][0]['source System']"
 								},
 								"sink": {
-									"name": "source System"
+									"name": "source System",
+									"type": "String"
 								}
 							}
 						],
