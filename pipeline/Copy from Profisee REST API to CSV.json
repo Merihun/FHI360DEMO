@@ -39,6 +39,88 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['data'][0]['code']"
+								},
+								"sink": {
+									"name": "code"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['name']"
+								},
+								"sink": {
+									"name": "name"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['addressLine1']"
+								},
+								"sink": {
+									"name": "addressLine1"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['addressLine2']"
+								},
+								"sink": {
+									"name": "addressLine2"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['addressLine3']"
+								},
+								"sink": {
+									"name": "addressLine3"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['city']"
+								},
+								"sink": {
+									"name": "city"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['stateProvince']"
+								},
+								"sink": {
+									"name": "stateProvince"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['postalCode']"
+								},
+								"sink": {
+									"name": "postalCode"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['country']"
+								},
+								"sink": {
+									"name": "country"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['source System']"
+								},
+								"sink": {
+									"name": "source System"
+								}
+							}
+						],
 						"mapComplexValuesToString": false
 					}
 				},
