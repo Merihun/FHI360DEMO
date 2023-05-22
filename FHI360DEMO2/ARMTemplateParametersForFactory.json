@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "FHI360DEMO2"
+		},
+		"ls_AzureDataLakeStorage_accountKey": {
+			"value": ""
+		},
+		"ls_AzureDataLakeStorage_properties_typeProperties_url": {
+			"value": "https://fhi360storage.dfs.core.windows.net/"
+		},
+		"ls_AzureKVDemo_properties_typeProperties_baseUrl": {
+			"value": "https://demokeyvaultfhi360.vault.azure.net/"
+		},
+		"ls_ProfiseeRESTAPI_properties_typeProperties_url": {
+			"value": "https://sbprofisee.onebridge.xyz/profisee/rest/v1"
+		}
+	}
+}
