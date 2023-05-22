@@ -44,7 +44,7 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['data'][0]['code']"
+									"path": "['code']"
 								},
 								"sink": {
 									"name": "code",
@@ -53,7 +53,7 @@
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['name']"
+									"path": "['name']"
 								},
 								"sink": {
 									"name": "name",
@@ -62,7 +62,7 @@
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['addressLine1']"
+									"path": "['addressLine1']"
 								},
 								"sink": {
 									"name": "addressLine1",
@@ -71,7 +71,7 @@
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['addressLine2']"
+									"path": "['addressLine2']"
 								},
 								"sink": {
 									"name": "addressLine2",
@@ -80,7 +80,7 @@
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['addressLine3']"
+									"path": "['addressLine3']"
 								},
 								"sink": {
 									"name": "addressLine3",
@@ -89,7 +89,7 @@
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['city']"
+									"path": "['city']"
 								},
 								"sink": {
 									"name": "city",
@@ -98,7 +98,7 @@
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['stateProvince']"
+									"path": "['stateProvince']"
 								},
 								"sink": {
 									"name": "stateProvince",
@@ -107,7 +107,7 @@
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['postalCode']"
+									"path": "['postalCode']"
 								},
 								"sink": {
 									"name": "postalCode",
@@ -116,7 +116,7 @@
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['country']"
+									"path": "['country']"
 								},
 								"sink": {
 									"name": "country",
@@ -125,7 +125,7 @@
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['source System']"
+									"path": "['source System']"
 								},
 								"sink": {
 									"name": "source System",
