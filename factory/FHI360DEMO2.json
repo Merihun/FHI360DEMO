@@ -1,0 +1,9 @@
+{
+	"name": "FHI360DEMO2",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "fe061191-6558-438b-b5ba-101be6a367b8",
+		"tenantId": "9e26ac01-4f70-4b4e-a856-78b0b72324ad"
+	}
+}
