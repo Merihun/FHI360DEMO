@@ -267,52 +267,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AdlsGen2BlobCsv1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Azure Data Lake Storage Gen2 container for CSV format.",
-				"linkedServiceName": {
-					"referenceName": "ls_AzureDataLakeStorage",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"FolderName": {
-						"type": "string"
-					},
-					"FileName": {
-						"type": "string"
-					}
-				},
-				"folder": {
-					"name": "CSV Format"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": {
-							"value": "@dataset().FileName",
-							"type": "Expression"
-						},
-						"fileSystem": {
-							"value": "@dataset().FolderName",
-							"type": "Expression"
-						}
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_AzureDataLakeStorage')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/ProfiseeRESTAPI_Records_Get')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -369,7 +323,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AdlsGen2BlobCsv2')]",
+			"name": "[concat(parameters('factoryName'), '/AdlsGen2BlobCsv1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -463,8 +417,7 @@
 											"path": "$['data'][0]['code']"
 										},
 										"sink": {
-											"name": "code",
-											"type": "String"
+											"name": "code"
 										}
 									},
 									{
@@ -472,8 +425,7 @@
 											"path": "$['data'][0]['name']"
 										},
 										"sink": {
-											"name": "name",
-											"type": "String"
+											"name": "name"
 										}
 									},
 									{
@@ -481,8 +433,7 @@
 											"path": "$['data'][0]['addressLine1']"
 										},
 										"sink": {
-											"name": "addressLine1",
-											"type": "String"
+											"name": "addressLine1"
 										}
 									},
 									{
@@ -490,8 +441,7 @@
 											"path": "$['data'][0]['addressLine2']"
 										},
 										"sink": {
-											"name": "addressLine2",
-											"type": "String"
+											"name": "addressLine2"
 										}
 									},
 									{
@@ -499,8 +449,7 @@
 											"path": "$['data'][0]['addressLine3']"
 										},
 										"sink": {
-											"name": "addressLine3",
-											"type": "String"
+											"name": "addressLine3"
 										}
 									},
 									{
@@ -508,8 +457,7 @@
 											"path": "$['data'][0]['city']"
 										},
 										"sink": {
-											"name": "city",
-											"type": "String"
+											"name": "city"
 										}
 									},
 									{
@@ -517,8 +465,7 @@
 											"path": "$['data'][0]['stateProvince']"
 										},
 										"sink": {
-											"name": "stateProvince",
-											"type": "String"
+											"name": "stateProvince"
 										}
 									},
 									{
@@ -526,8 +473,7 @@
 											"path": "$['data'][0]['postalCode']"
 										},
 										"sink": {
-											"name": "postalCode",
-											"type": "String"
+											"name": "postalCode"
 										}
 									},
 									{
@@ -535,8 +481,7 @@
 											"path": "$['data'][0]['country']"
 										},
 										"sink": {
-											"name": "country",
-											"type": "String"
+											"name": "country"
 										}
 									},
 									{
@@ -544,13 +489,11 @@
 											"path": "$['data'][0]['source System']"
 										},
 										"sink": {
-											"name": "source System",
-											"type": "String"
+											"name": "source System"
 										}
 									}
 								],
-								"collectionReference": "$['data']",
-								"mapComplexValuesToString": true
+								"mapComplexValuesToString": false
 							}
 						},
 						"inputs": [
@@ -573,7 +516,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "AdlsGen2BlobCsv2",
+								"referenceName": "AdlsGen2BlobCsv1",
 								"type": "DatasetReference",
 								"parameters": {
 									"FolderName": {
@@ -599,7 +542,8 @@
 						"defaultValue": "profisee-output"
 					},
 					"EntityId": {
-						"type": "String"
+						"type": "String",
+						"defaultValue": "CustomerAccount"
 					}
 				},
 				"folder": {
@@ -610,7 +554,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ProfiseeRESTAPI_Records_Get')]",
-				"[concat(variables('factoryId'), '/datasets/AdlsGen2BlobCsv2')]"
+				"[concat(variables('factoryId'), '/datasets/AdlsGen2BlobCsv1')]"
 			]
 		}
 	]
