@@ -180,85 +180,96 @@
 								"mappings": [
 									{
 										"source": {
-											"path": "$['data'][0]['code']"
+											"path": "[['code']"
 										},
 										"sink": {
-											"name": "code"
+											"name": "code",
+											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['name']"
+											"path": "[['name']"
 										},
 										"sink": {
-											"name": "name"
+											"name": "name",
+											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['addressLine1']"
+											"path": "[['addressLine1']"
 										},
 										"sink": {
-											"name": "addressLine1"
+											"name": "addressLine1",
+											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['addressLine2']"
+											"path": "[['addressLine2']"
 										},
 										"sink": {
-											"name": "addressLine2"
+											"name": "addressLine2",
+											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['addressLine3']"
+											"path": "[['addressLine3']"
 										},
 										"sink": {
-											"name": "addressLine3"
+											"name": "addressLine3",
+											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['city']"
+											"path": "[['city']"
 										},
 										"sink": {
-											"name": "city"
+											"name": "city",
+											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['stateProvince']"
+											"path": "[['stateProvince']"
 										},
 										"sink": {
-											"name": "stateProvince"
+											"name": "stateProvince",
+											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['postalCode']"
+											"path": "[['postalCode']"
 										},
 										"sink": {
-											"name": "postalCode"
+											"name": "postalCode",
+											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['country']"
+											"path": "[['country']"
 										},
 										"sink": {
-											"name": "country"
+											"name": "country",
+											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"path": "$['data'][0]['source System']"
+											"path": "[['source System']"
 										},
 										"sink": {
-											"name": "source System"
+											"name": "source System",
+											"type": "String"
 										}
 									}
 								],
+								"collectionReference": "$['DetailedRecords']",
 								"mapComplexValuesToString": false
 							}
 						},
