@@ -1,0 +1,10 @@
+{
+	"name": "ls_AzureKVDemo",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://demokeyvaultfhi360.vault.azure.net/"
+		}
+	}
+}
