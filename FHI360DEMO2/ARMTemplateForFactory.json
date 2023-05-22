@@ -183,8 +183,7 @@
 											"path": "[['code']"
 										},
 										"sink": {
-											"name": "code",
-											"type": "String"
+											"name": "code"
 										}
 									},
 									{
@@ -192,8 +191,7 @@
 											"path": "[['name']"
 										},
 										"sink": {
-											"name": "name",
-											"type": "String"
+											"name": "name"
 										}
 									},
 									{
@@ -201,8 +199,7 @@
 											"path": "[['addressLine1']"
 										},
 										"sink": {
-											"name": "addressLine1",
-											"type": "String"
+											"name": "addressLine1"
 										}
 									},
 									{
@@ -210,8 +207,7 @@
 											"path": "[['addressLine2']"
 										},
 										"sink": {
-											"name": "addressLine2",
-											"type": "String"
+											"name": "addressLine2"
 										}
 									},
 									{
@@ -219,8 +215,7 @@
 											"path": "[['addressLine3']"
 										},
 										"sink": {
-											"name": "addressLine3",
-											"type": "String"
+											"name": "addressLine3"
 										}
 									},
 									{
@@ -228,8 +223,7 @@
 											"path": "[['city']"
 										},
 										"sink": {
-											"name": "city",
-											"type": "String"
+											"name": "city"
 										}
 									},
 									{
@@ -237,8 +231,7 @@
 											"path": "[['stateProvince']"
 										},
 										"sink": {
-											"name": "stateProvince",
-											"type": "String"
+											"name": "stateProvince"
 										}
 									},
 									{
@@ -246,30 +239,11 @@
 											"path": "[['postalCode']"
 										},
 										"sink": {
-											"name": "postalCode",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"path": "[['country']"
-										},
-										"sink": {
-											"name": "country",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"path": "[['source System']"
-										},
-										"sink": {
-											"name": "source System",
-											"type": "String"
+											"name": "postalCode"
 										}
 									}
 								],
-								"collectionReference": "$['DetailedRecords']",
+								"collectionReference": "$['data']",
 								"mapComplexValuesToString": false
 							}
 						},
