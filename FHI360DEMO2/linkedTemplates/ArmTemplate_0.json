@@ -209,38 +209,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ProfiseeRESTAPI_Records_Upsert1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Profisee members update REST API call.",
-				"linkedServiceName": {
-					"referenceName": "ls_ProfiseeRESTAPI",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"entityId": {
-						"type": "string"
-					}
-				},
-				"folder": {
-					"name": "Profisee REST API"
-				},
-				"annotations": [],
-				"type": "RestResource",
-				"typeProperties": {
-					"relativeUrl": {
-						"value": "@concat(\n'records/',\ndataset().entityId, \n'/?isUpsert=true'\n)\n",
-						"type": "Expression"
-					}
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_ProfiseeRESTAPI')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/ProfiseeRESTAPI_Records_Get')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
