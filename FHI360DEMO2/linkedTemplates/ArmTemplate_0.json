@@ -59,32 +59,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ls_ProfiseeRESTAPI')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "RestService",
-				"typeProperties": {
-					"url": "[parameters('ls_ProfiseeRESTAPI_properties_typeProperties_url')]",
-					"enableServerCertificateValidation": true,
-					"authenticationType": "Anonymous",
-					"authHeaders": {
-						"X-API-Key": {
-							"type": "AzureKeyVaultSecret",
-							"store": {
-								"referenceName": "ls_AzureKVDemo",
-								"type": "LinkedServiceReference"
-							},
-							"secretName": "rest-demo-api-key",
-							"secretVersion": "29866f5a9e344878a1fc5f6fb791219d"
-						}
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/AdlsGen2BlobCsv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -131,35 +105,77 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ProfiseeRESTAPI_Records_Upsert')]",
+			"name": "[concat(parameters('factoryName'), '/AdlsGen2BlobCsv1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Profisee members update REST API call.",
+				"description": "Azure Data Lake Storage Gen2 container for CSV format.",
 				"linkedServiceName": {
-					"referenceName": "ls_ProfiseeRESTAPI",
+					"referenceName": "ls_AzureDataLakeStorage",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"entityId": {
+					"FolderName": {
+						"type": "string"
+					},
+					"FileName": {
 						"type": "string"
 					}
 				},
 				"folder": {
-					"name": "Profisee REST API"
+					"name": "CSV Format"
 				},
 				"annotations": [],
-				"type": "RestResource",
+				"type": "DelimitedText",
 				"typeProperties": {
-					"relativeUrl": {
-						"value": "@concat(\n'records/',\ndataset().entityId, \n'/?isUpsert=true'\n)\n",
-						"type": "Expression"
-					}
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@dataset().FileName",
+							"type": "Expression"
+						},
+						"fileSystem": {
+							"value": "@dataset().FolderName",
+							"type": "Expression"
+						}
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
 				},
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_ProfiseeRESTAPI')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_AzureDataLakeStorage')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_ProfiseeRESTAPI')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "RestService",
+				"typeProperties": {
+					"url": "[parameters('ls_ProfiseeRESTAPI_properties_typeProperties_url')]",
+					"enableServerCertificateValidation": true,
+					"authenticationType": "Anonymous",
+					"authHeaders": {
+						"X-API-Key": {
+							"type": "AzureKeyVaultSecret",
+							"store": {
+								"referenceName": "ls_AzureKVDemo",
+								"type": "LinkedServiceReference"
+							},
+							"secretName": "rest-demo-api-key",
+							"secretVersion": "29866f5a9e344878a1fc5f6fb791219d"
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_AzureKVDemo')]"
 			]
 		},
 		{
@@ -219,49 +235,35 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AdlsGen2BlobCsv1')]",
+			"name": "[concat(parameters('factoryName'), '/ProfiseeRESTAPI_Records_Upsert')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Azure Data Lake Storage Gen2 container for CSV format.",
+				"description": "Profisee members update REST API call.",
 				"linkedServiceName": {
-					"referenceName": "ls_AzureDataLakeStorage",
+					"referenceName": "ls_ProfiseeRESTAPI",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"FolderName": {
-						"type": "string"
-					},
-					"FileName": {
+					"entityId": {
 						"type": "string"
 					}
 				},
 				"folder": {
-					"name": "CSV Format"
+					"name": "Profisee REST API"
 				},
 				"annotations": [],
-				"type": "DelimitedText",
+				"type": "RestResource",
 				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": {
-							"value": "@dataset().FileName",
-							"type": "Expression"
-						},
-						"fileSystem": {
-							"value": "@dataset().FolderName",
-							"type": "Expression"
-						}
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
+					"relativeUrl": {
+						"value": "@concat(\n'records/',\ndataset().entityId, \n'/?isUpsert=true'\n)\n",
+						"type": "Expression"
+					}
 				},
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_AzureDataLakeStorage')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_ProfiseeRESTAPI')]"
 			]
 		},
 		{
@@ -394,13 +396,15 @@
 								"requestInterval": "00.00:00:00.010",
 								"requestMethod": "GET",
 								"paginationRules": {
-									"AbsoluteUrl": "nextPage"
+									"AbsoluteUrl": "$.nextPage"
 								}
 							},
 							"sink": {
 								"type": "DelimitedTextSink",
 								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
+									"type": "AzureBlobFSWriteSettings",
+									"maxConcurrentConnections": 0,
+									"copyBehavior": "FlattenHierarchy"
 								},
 								"formatSettings": {
 									"type": "DelimitedTextWriteSettings",
