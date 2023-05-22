@@ -77,10 +77,12 @@
 		],
 		"parameters": {
 			"FileName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "@triggerBody().fileName"
 			},
 			"FileFolder": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "@triggerBody().folderPath"
 			}
 		},
 		"folder": {
